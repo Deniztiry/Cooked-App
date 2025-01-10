@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooked_App.CreateRecipePage"
+             Title="CreateRecipePage"
+             BackgroundColor="#13181C">
+
+    <StackLayout Padding="20">
+        <Label Text="Rezeptname" />
+        <Entry Placeholder="Gib den Namen des Rezepts ein" x:Name="RecipeNameEntry" />
+
+        <Label Text="Zutaten" />
+        <Editor Placeholder="Liste der Zutaten" x:Name="IngredientsEditor" />
+
+        <Label Text="Zubereitung" />
+        <Editor Placeholder="Anleitung zur Zubereitung" x:Name="InstructionsEditor" />
+
+        <Button Text="Speichern" Clicked="OnSaveRecipeClicked" />
+    </StackLayout>
+</ContentPage>

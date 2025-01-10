@@ -14,9 +14,9 @@
         Route="MainPage" />
 
         <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:CreateRecipePage}"
         Icon="plus_icon.png"
-        Route="MainPage" />
+        Route="CreateRecipePage" />
 
         <ShellContent
         Icon="user_icon.png"

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -53,7 +54,7 @@ namespace Cooked_App
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Fehler beim Laden der Rezepte: {ex.Message}");
+                Debug.WriteLine($"Fehler beim Laden der Rezepte: {ex.Message}");
             }
 
             return new List<Recipe>();  // Wenn keine Datei gefunden wurde oder ein Fehler auftritt, eine leere Liste zurückgeben

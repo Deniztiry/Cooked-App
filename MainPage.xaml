@@ -3,15 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Cooked_App"
              x:Class="Cooked_App.MainPage"
+             xmlns:components="clr-namespace:Cooked_App.Components"
              BackgroundColor="#13181C">
-
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <!-- Konverter für die Anzeige der gefüllten Kreise -->
-            <local:DifficultyToCircleCountConverter x:Key="DifficultyToCircleCountConverter" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <VerticalStackLayout Padding="20">
         <!-- Suchfeld -->
         <Border Stroke="#FD5F28" StrokeThickness="2" BackgroundColor="#13181C">
@@ -19,36 +12,8 @@
         </Border>
 
         <!-- Rezepte anzeigen -->
-        <CollectionView x:Name="RecipesCollectionView">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" />
-            </CollectionView.ItemsLayout>
-
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10" Spacing="10" BackgroundColor="#13181C">
-                        <!-- Bild des Rezepts -->
-                        <Frame CornerRadius="10" HasShadow="False" Padding="0">
-                            <Image Source="{Binding ImageUrl}" HeightRequest="150" Aspect="AspectFill" />
-                        </Frame>
-
-                        <!-- Titel des Rezepts und Schwierigkeitsgrad -->
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
-                            <Label Text="{Binding Title}" FontSize="16" TextColor="#FFFFFF" VerticalOptions="Center" />
-                            <StackLayout Orientation="Horizontal" Spacing="5">
-                                <!-- Kreise mit orangefarbener Füllung, abhängig von der Schwierigkeit -->
-                                <Frame CornerRadius="50" WidthRequest="10" HeightRequest="10" BackgroundColor="#FD5F28"
-       IsVisible="{Binding Difficulty, Converter={StaticResource DifficultyToCircleCountConverter}, ConverterParameter=1}" />
-                                <Frame CornerRadius="50" WidthRequest="10" HeightRequest="10" BackgroundColor="#FD5F28"
-       IsVisible="{Binding Difficulty, Converter={StaticResource DifficultyToCircleCountConverter}, ConverterParameter=2}" />
-                                <Frame CornerRadius="50" WidthRequest="10" HeightRequest="10" BackgroundColor="#FD5F28"
-       IsVisible="{Binding Difficulty, Converter={StaticResource DifficultyToCircleCountConverter}, ConverterParameter=3}" />
-
-                            </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <ScrollView>
+            <VerticalStackLayout x:Name="RecipesContainer" Spacing="10" />
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

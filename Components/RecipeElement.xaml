@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooked_App.Components.RecipeElement">
+    <StackLayout Padding="10" Spacing="10" BackgroundColor="#13181C">
+        <Frame CornerRadius="10" HasShadow="False" Padding="0">
+            <Image Source="{Binding ImageUrl}" HeightRequest="150" Aspect="AspectFill" />
+        </Frame>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+            <Label Text="{Binding Title}" FontSize="16" TextColor="#FFFFFF" VerticalOptions="Center" />
+            <StackLayout Orientation="Horizontal" Spacing="5">
+                <Frame CornerRadius="50" WidthRequest="10" HeightRequest="10" BackgroundColor="#FD5F28"
+                       IsVisible="{Binding Difficulty[0]}" />
+                <Frame CornerRadius="50" WidthRequest="10" HeightRequest="10" BackgroundColor="#FD5F28"
+                       IsVisible="{Binding Difficulty[1]}" />
+                <Frame CornerRadius="50" WidthRequest="10" HeightRequest="10" BackgroundColor="#FD5F28"
+                       IsVisible="{Binding Difficulty[2]}" />
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

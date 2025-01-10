@@ -1,44 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using Microsoft.Maui.Controls;
+ï»¿using System.Text.Json;
 
 namespace Cooked_App
 {
-
-    public class DifficultyToCircleCountConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            if (value is bool[] difficulty && parameter is string param)
-            {
-                int paramValue = int.Parse(param);
-                // Gebe zurück, ob die Schwierigkeitsstufe "true" ist
-                return difficulty.Length >= paramValue && difficulty[paramValue - 1];
-            }
-            return false;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-
     public partial class MainPage : ContentPage
     {
-        private const string FileName = "recipes.json";  // Der Dateiname für die Rezepte
+        private const string FileName = "recipes.json";
         private List<Recipe> _recipes;
 
         public MainPage()
         {
             InitializeComponent();
-            _recipes = LoadRecipes();  // Rezepte laden
-            RecipesCollectionView.ItemsSource = _recipes;  // CollectionView mit den geladenen Rezepten füllen
+            LoadAndDisplayRecipes();
+        }
+
+        private void LoadAndDisplayRecipes()
+        {
+            _recipes = LoadRecipes();
+
+            RecipesContainer.Children.Clear();
+            foreach (var recipe in _recipes)
+            {
+                RecipesContainer.Children.Add(new Components.RecipeElement { Recipe = recipe });
+            }
         }
 
         private List<Recipe> LoadRecipes()
@@ -54,48 +37,20 @@ namespace Cooked_App
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Fehler beim Laden der Rezepte: {ex.Message}");
+                Console.WriteLine($"Fehler beim Laden der Rezepte: {ex.Message}");
             }
 
-            return new List<Recipe>();  // Wenn keine Datei gefunden wurde oder ein Fehler auftritt, eine leere Liste zurückgeben
+            return new List<Recipe>();
         }
-
-        private void OnSaveClicked(object sender, EventArgs e)
-        {
-            var newRecipe = new Recipe
-            {
-                Title = "Neues Rezept",  // Beispiel für ein neues Rezept
-                ImageUrl = "https://example.com/image.jpg",  // Beispielbild
-                Difficulty = new bool[] { true, false, true }  // Beispiel für Schwierigkeitsgrad
-            };
-
-            _recipes.Add(newRecipe);  // Neues Rezept hinzufügen
-            SaveRecipes();  // Rezepte speichern
-            RecipesCollectionView.ItemsSource = null;  // CollectionView zurücksetzen
-            RecipesCollectionView.ItemsSource = _recipes;  // CollectionView neu binden
-        }
-
-        private void SaveRecipes()
-        {
-            try
-            {
-                var filePath = Path.Combine(FileSystem.AppDataDirectory, FileName);
-                var json = JsonSerializer.Serialize(_recipes);
-                File.WriteAllText(filePath, json);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Fehler beim Speichern der Rezepte: {ex.Message}");
-            }
-        }
-        
     }
 
-    // Rezeptklasse, die die Eigenschaften des Rezepts beschreibt
-    public class Recipe
-    {
-        public string Title { get; set; }
-        public string ImageUrl { get; set; }
-        public bool[] Difficulty { get; set; }  // Bool-Array für die Schwierigkeitsstufen
-    }
 }
+
+// Rezeptklasse, die die Eigenschaften des Rezepts beschreibt
+public class Recipe
+{
+    public string Title { get; set; }
+    public string ImageUrl { get; set; }
+    public bool[] Difficulty { get; set; }  // Bool-Array fï¿½r die Schwierigkeitsstufen
+}
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooked_App.SettingsPage"
+             BackgroundColor="#13181C">
+
+	<ScrollView>
+		<VerticalStackLayout
+            Padding="0"
+            Spacing="0">
+
+			<!-- Buttons ohne Abstand, mit orangefarbener Umrandung und voller Breite -->
+			<Button
+                Text="Einkaufsliste"
+                FontSize="20"
+                FontFamily="Quicksand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                BorderColor="Orange"
+                BorderWidth="2"
+                Padding="0"
+                HeightRequest="50"/>
+
+			<Button
+                Text="Deine Rezepte"
+                FontSize="20"
+                FontFamily="Quicksand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                BorderColor="Orange"
+                BorderWidth="2"
+                Padding="0"
+                HeightRequest="50"/>
+
+			<Button
+                Text="Accounteinstellungen"
+                FontSize="20"
+                FontFamily="Quicksand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                BorderColor="Orange"
+                BorderWidth="2"
+                Padding="0"
+                HeightRequest="50"/>
+
+			<Button
+                Text="Favoriten"
+                FontSize="20"
+                FontFamily="Quicksand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                BorderColor="Orange"
+                BorderWidth="2"
+                Padding="0"
+                HeightRequest="50"/>
+
+			<Button
+                Text="Support"
+                FontSize="20"
+                FontFamily="Quicksand"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                BorderColor="Orange"
+                BorderWidth="2"
+                Padding="0"
+                HeightRequest="50"/>
+
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

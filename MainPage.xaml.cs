@@ -23,6 +23,7 @@ namespace Cooked_App
             RecipesContainer.BindingContext = _recipes;
         }
 
+
         private List<Recipe> LoadRecipes()
         {
             try

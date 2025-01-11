@@ -13,14 +13,21 @@
 
         <!-- Rezepte anzeigen -->
         <CollectionView x:Name="RecipesContainer"
-                        ItemsLayout="HorizontalGrid, 2"
-                        VerticalScrollBarVisibility="Default"
-                        BackgroundColor="#13181C">
+                ItemsLayout="HorizontalGrid, 2"
+                VerticalScrollBarVisibility="Default"
+                BackgroundColor="#13181C">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                         Span="2"
+                         HorizontalItemSpacing="10"
+                         VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <components:RecipeElement />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>

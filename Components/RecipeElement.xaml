@@ -8,7 +8,7 @@
         </Frame>
         <Label Text="{Binding Title}" FontSize="16" TextColor="#FFFFFF" HorizontalOptions="Center">
             <Label.Triggers>
-                <DataTrigger TargetType="Label" Binding="{Binding Title}" Value="Rezept ">
+                <DataTrigger TargetType="Label" Binding="{Binding Title}" Value="Rezept 7">
                     <Setter Property="TextColor" Value="Red"/>
                 </DataTrigger>
             </Label.Triggers>

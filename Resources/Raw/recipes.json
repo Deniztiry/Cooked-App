@@ -9,21 +9,13 @@
         "ImageUrl": "cooked_logo.png",
         "Difficulty": [ true, true, false ]
     },
-    {
-        "Title": "Rezept 34",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, false, false ]
-    },
+
     {
         "Title": "Rezept 4",
         "ImageUrl": "cooked_logo.png",
         "Difficulty": [ true, false, true ]
     },
-    {
-        "Title": "Rezept 5",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, false ]
-    },
+
     {
         "Title": "Rezept 6",
         "ImageUrl": "cooked_logo.png",

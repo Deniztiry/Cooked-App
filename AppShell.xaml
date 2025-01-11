@@ -7,6 +7,14 @@
     Shell.FlyoutBehavior="Flyout"
     Title="Cooked_App">
 
+    <Shell.TabBarBackgroundColor>
+        <Color>#FD5F28</Color>
+    </Shell.TabBarBackgroundColor>
+
+    <Shell.TabBarForegroundColor>
+        <Color>White</Color>
+    </Shell.TabBarForegroundColor>
+
     <TabBar>
         <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"

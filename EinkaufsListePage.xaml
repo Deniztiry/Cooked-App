@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooked_App.EinkaufsListePage"
+             BackgroundColor="#13181C">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Liste der Artikel -->
+        <Label Text="Einkaufsliste" FontSize="24" FontFamily="Quicksand" TextColor="White" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="ItemList" BackgroundColor="#13181C">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <Label Text="{Binding}" TextColor="White" VerticalOptions="Center" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Eingabefeld für neue Artikel -->
+        <Entry x:Name="ItemEntry" Placeholder="Neuen Artikel hinzufügen" TextColor="White" BackgroundColor="#13181C" PlaceholderColor="#B5B5B5" />
+
+        <!-- Button zum Hinzufügen eines Artikels -->
+        <Button Text="Hinzufügen" BackgroundColor="#FD5F28" TextColor="White" Clicked="OnAddItemClicked" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -10,18 +10,19 @@
             Spacing="0">
 
 			<!-- Buttons ohne Abstand, mit orangefarbener Umrandung und voller Breite -->
-			<Button
-                Text="Einkaufsliste"
-                FontSize="20"
-                FontFamily="Quicksand"
-                HorizontalOptions="FillAndExpand"
-                BackgroundColor="Transparent"
-                BorderColor="Orange"
-                BorderWidth="2"
-                Padding="0"
-                HeightRequest="50"/>
+            <Button
+    Text="Einkaufsliste"
+    FontSize="20"
+    FontFamily="Quicksand"
+    HorizontalOptions="FillAndExpand"
+    BackgroundColor="Transparent"
+    BorderColor="Orange"
+    BorderWidth="2"
+    Padding="0"
+    HeightRequest="50"
+    Clicked="OnEinkaufslisteClicked" />
 
-			<Button
+            <Button
                 Text="Deine Rezepte"
                 FontSize="20"
                 FontFamily="Quicksand"

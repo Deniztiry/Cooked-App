@@ -16,12 +16,11 @@ namespace Cooked_App
         private void LoadAndDisplayRecipes()
         {
             _recipes = LoadRecipes();
+            RecipesContainer.ItemsSource = null; // Setze auf null, um sicherzustellen, dass es neu geladen wird
+            RecipesContainer.ItemsSource = _recipes; // Weise die neue Liste zu
 
-            RecipesContainer.Children.Clear();
-            foreach (var recipe in _recipes)
-            {
-                RecipesContainer.Children.Add(new Components.RecipeElement { Recipe = recipe });
-            }
+            // Optional: Setze BindingContext explizit
+            RecipesContainer.BindingContext = _recipes;
         }
 
         private List<Recipe> LoadRecipes()
@@ -32,7 +31,14 @@ namespace Cooked_App
                 if (File.Exists(filePath))
                 {
                     var json = File.ReadAllText(filePath);
-                    return JsonSerializer.Deserialize<List<Recipe>>(json) ?? new List<Recipe>();
+                    Console.WriteLine($"Geladene JSON-Daten: {json}"); // Gib die geladenen JSON-Daten aus
+
+                    var recipes = JsonSerializer.Deserialize<List<Recipe>>(json);
+
+                    // Überprüfe die Anzahl der deserialisierten Rezepte
+                    Console.WriteLine($"Anzahl der Rezepte: {recipes?.Count}");
+
+                    return recipes ?? new List<Recipe>();
                 }
             }
             catch (Exception ex)
@@ -44,13 +50,10 @@ namespace Cooked_App
         }
     }
 
+    public class Recipe
+    {
+        public string Title { get; set; }
+        public string ImageUrl { get; set; }
+        public bool[] Difficulty { get; set; } // Bool-Array für die Schwierigkeitsstufen
+    }
 }
-
-// Rezeptklasse, die die Eigenschaften des Rezepts beschreibt
-public class Recipe
-{
-    public string Title { get; set; }
-    public string ImageUrl { get; set; }
-    public bool[] Difficulty { get; set; }  // Bool-Array f�r die Schwierigkeitsstufen
-}
-

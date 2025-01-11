@@ -12,8 +12,15 @@
         </Border>
 
         <!-- Rezepte anzeigen -->
-        <ScrollView>
-            <VerticalStackLayout x:Name="RecipesContainer" Spacing="10" />
-        </ScrollView>
+        <CollectionView x:Name="RecipesContainer"
+                        ItemsLayout="HorizontalGrid, 2"
+                        VerticalScrollBarVisibility="Default"
+                        BackgroundColor="#13181C">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <components:RecipeElement />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

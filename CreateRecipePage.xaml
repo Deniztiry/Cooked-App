@@ -5,14 +5,13 @@
              BackgroundColor="#13181C">
 
     <StackLayout Padding="20" Spacing="15">
-        <Label Text="Rezeptname" TextColor="White"/>
-        <Entry Placeholder="Gib den Namen des Rezepts ein" x:Name="RecipeNameEntry" TextColor="White" />
+        <Entry Placeholder="Wie heisst dein Rezept?" x:Name="RecipeNameEntry" TextColor="Black" />
 
         <Label Text="Zutaten" TextColor="White"/>
-        <Editor Placeholder="Liste der Zutaten" x:Name="IngredientsEditor" TextColor="White" />
+        <Editor Placeholder="Füge deine Zutaten hinzu" x:Name="IngredientsEditor" TextColor="Black" BackgroundColor="white"/>
 
         <Label Text="Zubereitung" TextColor="White"/>
-        <Editor Placeholder="Anleitung zur Zubereitung" x:Name="InstructionsEditor" TextColor="White" />
+        <Editor Placeholder="Beschreibe die Zubereitung" x:Name="InstructionsEditor" TextColor="White" />
 
         <!-- Bildauswahl -->
         <Label Text="Bild hinzufügen" TextColor="White"/>

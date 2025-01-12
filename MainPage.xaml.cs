@@ -27,16 +27,12 @@ namespace Cooked_App
         {
             try
             {
-                var filePath = Path.Combine(FileSystem.AppDataDirectory, FileName);
+                var filePath = Path.Combine(FileSystem.AppDataDirectory, "recipes.json");
+
                 if (File.Exists(filePath))
                 {
                     var json = File.ReadAllText(filePath);
-                    Console.WriteLine($"Geladene JSON-Daten: {json}");
-
                     var recipes = JsonSerializer.Deserialize<List<Recipe>>(json);
-
-                    Console.WriteLine($"Anzahl der Rezepte: {recipes?.Count}");
-
                     return recipes ?? new List<Recipe>();
                 }
             }
@@ -47,6 +43,7 @@ namespace Cooked_App
 
             return new List<Recipe>();
         }
+
 
         // Event-Handler für den Suchbutton
         private void OnSearchButtonClicked(object sender, EventArgs e)
@@ -70,21 +67,23 @@ namespace Cooked_App
 
         private async void OnRecipeTapped(object sender, EventArgs e)
         {
-            var tappedRecipe = (sender as Grid)?.BindingContext as Recipe;  // Hier geht es davon aus, dass jedes Rezept in einem Grid eingebettet ist
+            var tappedRecipe = (sender as Grid)?.BindingContext as Recipe;
             if (tappedRecipe != null)
             {
-                await Navigation.PushAsync(new Detailpage(tappedRecipe));  // Navigiere zur Detail-Seite
+                await Navigation.PushAsync(new Detailpage(tappedRecipe));
             }
         }
     }
 
-    public class Recipe : INotifyPropertyChanged
+        public class Recipe : INotifyPropertyChanged
     {
         private bool _isFavorite;
 
         public string Title { get; set; }
         public string ImageUrl { get; set; }
         public bool[] Difficulty { get; set; }
+        public List<string> Ingredients { get; set; }
+        public List<string> Instructions { get; set; }
         public bool IsFavorite
         {
             get => _isFavorite;

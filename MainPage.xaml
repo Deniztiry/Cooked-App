@@ -18,27 +18,30 @@
             <Button Text="Suchen" BackgroundColor="#FD5F28" TextColor="#FFFFFF" Clicked="OnSearchButtonClicked" />
         </HorizontalStackLayout>
 
-        <!-- Rezepte anzeigen -->
-        <CollectionView x:Name="RecipesContainer"
-                        ItemsLayout="HorizontalGrid, 2"
-                        VerticalScrollBarVisibility="Default"
-                        BackgroundColor="#13181C">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical"
-                                 Span="2"
-                                 HorizontalItemSpacing="10"
-                                 VerticalItemSpacing="10" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <components:RecipeElement />
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnRecipeTapped" CommandParameter="{Binding}" />
-                        </Grid.GestureRecognizers>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <!-- Rezepte anzeigen innerhalb von ScrollView -->
+        <ScrollView>
+            <CollectionView x:Name="RecipesContainer"
+                    ItemsLayout="HorizontalGrid, 2"
+                    VerticalScrollBarVisibility="Default"
+                    BackgroundColor="#13181C">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                             Span="2"
+                             HorizontalItemSpacing="10"
+                             VerticalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <components:RecipeElement />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRecipeTapped" CommandParameter="{Binding}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
     </VerticalStackLayout>
 </ContentPage>

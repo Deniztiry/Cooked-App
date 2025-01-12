@@ -3,10 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cooked_App.Detailpage"
              BackgroundColor="#13181C">
-    <VerticalStackLayout Padding="20">
-        <!-- Rezeptdetails -->
-        <Label Text="{Binding Title}" FontSize="24" TextColor="White" HorizontalOptions="Center" />
-        <Label Text="{Binding Ingredients}" TextColor="White" />
-        <Label Text="{Binding Instructions}" TextColor="White" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Titel -->
+            <Label Text="{Binding Title}" FontSize="24" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- Bild -->
+            <Image Source="{Binding ImageUrl}" HeightRequest="200" Aspect="AspectFill" />
+
+            <!-- Schwierigkeit -->
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Label Text="Schwierigkeitsgrad" TextColor="White" />
+                <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[0], Converter={StaticResource BoolToColorConverter}}" />
+                <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[1], Converter={StaticResource BoolToColorConverter}}" />
+                <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[2], Converter={StaticResource BoolToColorConverter}}" />
+            </HorizontalStackLayout>
+
+            <!-- Zutaten -->
+            <Label Text="Zutaten:" FontSize="18" TextColor="White" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Ingredients}" BackgroundColor="#13181C">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" TextColor="White" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Zubereitung -->
+            <Label Text="Zubereitung:" FontSize="18" TextColor="White" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding Instructions}" BackgroundColor="#13181C">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" TextColor="White" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

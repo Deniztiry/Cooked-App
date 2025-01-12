@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Storage;
 
@@ -6,11 +7,14 @@ namespace Cooked_App;
 public partial class EinkaufsListePage : ContentPage
 {
     private const string EinkaufslisteKey = "EinkaufsListe";
+    public ObservableCollection<string> Items { get; set; }
 
     public EinkaufsListePage()
     {
         InitializeComponent();
+        Items = new ObservableCollection<string>();
         LoadItems();
+        BindingContext = this; // Damit die Bindings funktionieren
     }
 
     // Laden der Einkaufsliste aus den Preferences
@@ -18,7 +22,10 @@ public partial class EinkaufsListePage : ContentPage
     {
         var savedItems = Preferences.Get(EinkaufslisteKey, string.Empty);
         var items = string.IsNullOrEmpty(savedItems) ? new List<string>() : savedItems.Split(',').ToList();
-        ItemList.ItemsSource = items;
+        foreach (var item in items)
+        {
+            Items.Add(item);
+        }
     }
 
     // Artikel zur Einkaufsliste hinzufügen
@@ -26,18 +33,23 @@ public partial class EinkaufsListePage : ContentPage
     {
         if (!string.IsNullOrEmpty(ItemEntry.Text))
         {
-            var items = ItemList.ItemsSource as List<string> ?? new List<string>();
-            items.Add(ItemEntry.Text);
-            ItemList.ItemsSource = items;
-            SaveItems(items);
+            Items.Add(ItemEntry.Text);
+            SaveItems();
             ItemEntry.Text = string.Empty; // Eingabefeld zurücksetzen
         }
     }
 
-    // Einkaufsliste in den Preferences speichern
-    private void SaveItems(List<string> items)
+    // Artikel aus der Einkaufsliste löschen
+    public Command<string> DeleteItemCommand => new Command<string>((item) =>
     {
-        var savedItems = string.Join(",", items);
+        Items.Remove(item);
+        SaveItems(); // Aktualisiert die gespeicherten Items
+    });
+
+    // Einkaufsliste in den Preferences speichern
+    private void SaveItems()
+    {
+        var savedItems = string.Join(",", Items);
         Preferences.Set(EinkaufslisteKey, savedItems);
     }
 }

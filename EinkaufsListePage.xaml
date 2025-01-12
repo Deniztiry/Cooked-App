@@ -3,24 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cooked_App.EinkaufsListePage"
              BackgroundColor="#13181C">
+
     <VerticalStackLayout Padding="20" Spacing="15">
-        <!-- Liste der Artikel -->
+        <!-- Titel der Seite -->
         <Label Text="Einkaufsliste" FontSize="24" FontFamily="Quicksand" TextColor="White" HorizontalOptions="Center" />
 
-        <CollectionView x:Name="ItemList" BackgroundColor="#13181C">
+        <!-- CollectionView für die Artikel -->
+        <CollectionView x:Name="ItemList" BackgroundColor="#13181C" ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal" Padding="5">
+                        <!-- Anzeige des Artikels -->
                         <Label Text="{Binding}" TextColor="White" VerticalOptions="Center" />
+
+                        <!-- Löschen-Button -->
+                        <Button Text="Löschen" BackgroundColor="#FD5F28" TextColor="White" 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteItemCommand}" 
+                                CommandParameter="{Binding .}" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-        </CollectionView>
+        </CollectionView> 
 
         <!-- Eingabefeld für neue Artikel -->
         <Entry x:Name="ItemEntry" Placeholder="Neuen Artikel hinzufügen" TextColor="White" BackgroundColor="#13181C" PlaceholderColor="#B5B5B5" />
 
         <!-- Button zum Hinzufügen eines Artikels -->
-        <Button Text="Hinzufügen" BackgroundColor="#FD5F28" TextColor="White" Clicked="OnAddItemClicked" />
+        <Button Text="Hinzufügen" BackgroundColor="#FD9748" TextColor="White" Clicked="OnAddItemClicked" />
     </VerticalStackLayout>
+
 </ContentPage>

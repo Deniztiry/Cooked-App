@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cooked_App.PrivacyPolicyPage"
+             BackgroundColor="#13181C">
+
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Datenschutzerklärung" TextColor="White" FontSize="24" HorizontalOptions="Center" />
+
+        <!-- ScrollView für den Inhalt -->
+        <ScrollView>
+            <StackLayout Spacing="10">
+                <Label Text="1. Allgemeine Informationen" TextColor="White" FontSize="18" />
+                <Label Text="Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Datenschutzerklärung erläutert, wie wir Ihre personenbezogenen Daten erheben, verwenden, speichern und schützen, wenn Sie unsere App 'Cooked_App' nutzen." TextColor="White" />
+
+                <Label Text="2. Welche Daten erheben wir?" TextColor="White" FontSize="18" />
+                <Label Text="Wir erheben nur die Daten, die notwendig sind, um Ihnen die Nutzung unserer App zu ermöglichen, z. B. Rezeptdaten und Nutzungsdaten." TextColor="White" />
+
+                <Label Text="3. Wie verwenden wir die gesammelten Daten?" TextColor="White" FontSize="18" />
+                <Label Text="Die gesammelten Daten werden zur Verbesserung der App und Bereitstellung der Funktionen verwendet." TextColor="White" />
+
+                <Label Text="4. Weitergabe von Daten" TextColor="White" FontSize="18" />
+                <Label Text="Ihre Daten werden nicht an Dritte weitergegeben, außer wenn dies gesetzlich erforderlich ist." TextColor="White" />
+
+                <Label Text="5. Datensicherheit" TextColor="White" FontSize="18" />
+                <Label Text="Wir setzen Sicherheitsmaßnahmen ein, um Ihre Daten zu schützen." TextColor="White" />
+
+                <Label Text="6. Ihre Rechte" TextColor="White" FontSize="18" />
+                <Label Text="Sie haben das Recht, Auskunft über Ihre Daten zu verlangen und diese zu berichtigen oder löschen zu lassen." TextColor="White" />
+
+                <Label Text="7. Kontakt" TextColor="White" FontSize="18" />
+                <Label Text="Bei Fragen erreichen Sie uns unter: cooked@gmail.com." TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

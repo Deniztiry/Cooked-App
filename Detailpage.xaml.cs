@@ -7,7 +7,7 @@ namespace Cooked_App
         public Detailpage(Recipe recipe)
         {
             InitializeComponent();
-            BindingContext = recipe;  // Rezept als BindingContext setzen
+            BindingContext = recipe; // Setzt das aktuelle Rezept als Kontext
         }
     }
 }

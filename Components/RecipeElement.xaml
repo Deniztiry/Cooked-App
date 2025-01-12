@@ -20,13 +20,5 @@
             <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[1], Converter={StaticResource BoolToColorConverter}}" />
             <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[2], Converter={StaticResource BoolToColorConverter}}" />
         </HorizontalStackLayout>
-
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-            <ImageButton Source="{Binding IsFavorite, Converter={StaticResource BoolToHeartConverter}}" 
-                         WidthRequest="20" 
-                         HeightRequest="20" 
-                         BackgroundColor="red" 
-                         Command="{Binding ToggleFavoriteCommand}" />
-        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentView>

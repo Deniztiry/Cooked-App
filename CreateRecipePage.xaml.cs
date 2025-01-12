@@ -1,6 +1,9 @@
 using Microsoft.Maui.Controls;
 using System;
 using System.IO;
+using System.Text.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Cooked_App
 {
@@ -45,22 +48,64 @@ namespace Cooked_App
 
             if (!string.IsNullOrWhiteSpace(recipeName))
             {
-                // Beispiel für das Speichern der Rezeptdaten mit Bild
+                // Neues Rezept erstellen
                 var newRecipe = new Recipe
                 {
                     Title = recipeName,
-                    ImageUrl = _imagePath, // Speichert den Pfad oder die URL des Bildes
-                    Difficulty = new bool[] { false, false, false } // Beispielwert
+                    ImageUrl = _imagePath, // Bildpfad
+                    Difficulty = new bool[] { false, false, false }, // Beispiel für Schwierigkeitsgrad
+                    Ingredients = ingredients.Split('\n').ToList(), // Zutaten aus Editor
+                    Instructions = instructions.Split('\n').ToList() // Zubereitung aus Editor
                 };
 
-                // Logik zur Speicherung (z. B. JSON-Update)
-                await DisplayAlert("Erfolgreich", "Rezept wurde hinzugefügt!", "OK");
-                await Shell.Current.GoToAsync("//MainPage");
+                try
+                {
+                    // Pfad zur Datei
+                    var filePath = Path.Combine(FileSystem.AppDataDirectory, "recipes.json");
+
+                    // Rezepte aus der Datei laden
+                    var recipes = LoadRecipes(filePath);
+
+                    // Neues Rezept hinzufügen
+                    recipes.Add(newRecipe);
+
+                    // Rezepte wieder in die Datei speichern
+                    var json = JsonSerializer.Serialize(recipes);
+                    File.WriteAllText(filePath, json);
+
+                    await DisplayAlert("Erfolgreich", "Rezept wurde hinzugefügt!", "OK");
+
+                    // Zur MainPage zurückkehren und Rezeptliste aktualisieren
+                    await Shell.Current.GoToAsync("//MainPage");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Fehler", $"Rezept konnte nicht gespeichert werden: {ex.Message}", "OK");
+                }
             }
             else
             {
                 await DisplayAlert("Fehler", "Bitte einen Rezeptnamen eingeben!", "OK");
             }
+        }
+
+        private List<Recipe> LoadRecipes(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    var json = File.ReadAllText(filePath);
+                    var recipes = JsonSerializer.Deserialize<List<Recipe>>(json);
+                    return recipes ?? new List<Recipe>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Laden der Rezepte: {ex.Message}");
+            }
+
+            return new List<Recipe>();
         }
     }
 }

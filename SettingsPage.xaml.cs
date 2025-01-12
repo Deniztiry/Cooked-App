@@ -12,4 +12,9 @@ public partial class SettingsPage : ContentPage
     {
         await Navigation.PushAsync(new EinkaufsListePage());
     }
+    // Navigiere zur Datenschutzerklärung, wenn der Button geklickt wird
+    private async void OnDatenschutzerklärungClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PrivacyPolicyPage());
+    }
 }

@@ -1,59 +1,109 @@
 [
     {
-        "Title": "Rezept 1",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, true ]
+        "Title": "Carbonara",
+        "ImageUrl": "carbonara.jpg",
+        "Difficulty": [ true, true, false ],
+        "Ingredients": [
+            "200 g Spaghetti",
+            "100 g Pancetta",
+            "2 Eier",
+            "50 g Parmesan",
+            "1 Knoblauchzehe",
+            "Salz und Pfeffer",
+            "1 EL Olivenöl"
+        ],
+        "Instructions": [
+            "Die Spaghetti in einem großen Topf mit gesalzenem Wasser al dente kochen.",
+            "Den Speck in einer Pfanne anbraten.",
+            "Knoblauch kurz mitbraten und dann entfernen.",
+            "Eier und Parmesan verquirlen und mit Pfeffer abschmecken.",
+            "Spaghetti abgießen und mit der Eimischung vermengen.",
+            "Servieren und genießen."
+        ]
     },
     {
-        "Title": "Rezept 2",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, false ]
-    },
-
-    {
-        "Title": "Rezept 4",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, true ]
-    },
-
-    {
-        "Title": "Rezept 6",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, false ]
-    },
-    {
-        "Title": "Rezept 7",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, false, false ]
+        "Title": "Caesar",
+        "ImageUrl": "caesar.jpg",
+        "Difficulty": [ true, true, true ],
+        "Ingredients": [
+            "200 g Römersalat",
+            "100 g Croutons",
+            "50 g Parmesan",
+            "2 EL Caesar-Dressing",
+            "1 TL Zitronensaft",
+            "Salz und Pfeffer"
+        ],
+        "Instructions": [
+            "Römersalat in mundgerechte Stücke schneiden.",
+            "Parmesan raspeln.",
+            "Salat, Croutons und Parmesan in einer Schüssel vermengen.",
+            "Mit Caesar-Dressing, Zitronensaft, Salz und Pfeffer abschmecken.",
+            "Servieren und genießen."
+        ]
     },
     {
-        "Title": "Rezept 333",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, false, false ]
+        "Title": "Kuchen",
+        "ImageUrl": "schokokuchen.jpg",
+        "Difficulty": [ true, false, false ],
+        "Ingredients": [
+            "200 g Mehl",
+            "100 g Zucker",
+            "50 g Kakaopulver",
+            "1 TL Backpulver",
+            "2 Eier",
+            "100 ml Milch",
+            "100 g Butter",
+            "1 TL Vanilleextrakt"
+        ],
+        "Instructions": [
+            "Backofen auf 180 °C vorheizen.",
+            "Mehl, Zucker, Kakaopulver und Backpulver in einer Schüssel vermengen.",
+            "Butter schmelzen und zusammen mit Eiern, Milch und Vanilleextrakt in die Schüssel geben.",
+            "Den Teig gut verrühren und in eine gefettete Backform geben.",
+            "Für 30 Minuten im Ofen backen.",
+            "Abkühlen lassen und servieren."
+        ]
     },
     {
-        "Title": "Rezept 456",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, false ]
+        "Title": "Caprese",
+        "ImageUrl": "caprese.jpg",
+        "Difficulty": [ true, false, false ],
+        "Ingredients": [
+            "200 g Tomaten",
+            "150 g Mozzarella",
+            "Basilikumblätter",
+            "2 EL Olivenöl",
+            "1 TL Balsamico-Essig",
+            "Salz und Pfeffer"
+        ],
+        "Instructions": [
+            "Tomaten und Mozzarella in Scheiben schneiden.",
+            "Scheiben abwechselnd auf einem Teller anrichten.",
+            "Mit Basilikumblättern garnieren.",
+            "Mit Olivenöl, Balsamico-Essig, Salz und Pfeffer abschmecken.",
+            "Servieren und genießen."
+        ]
     },
     {
-        "Title": "Rezept 61",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, true ]
-    },
-    {
-        "Title": "Rezept 7476",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, false, false ]
-    },
-    {
-        "Title": "Rezept 239",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, true ]
-    },
-    {
-        "Title": "Rezept 394",
-        "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, true, false ]
+        "Title": "Pancakes",
+        "ImageUrl": "pancakes.jpg",
+        "Difficulty": [ true, true, false ],
+        "Ingredients": [
+            "200 g Mehl",
+            "2 TL Backpulver",
+            "1 EL Zucker",
+            "1 Ei",
+            "300 ml Milch",
+            "1 Prise Salz",
+            "Butter zum Braten"
+        ],
+        "Instructions": [
+            "Mehl, Backpulver, Zucker und Salz in einer Schüssel vermengen.",
+            "Ei und Milch hinzufügen und zu einem glatten Teig verrühren.",
+            "Etwas Butter in einer Pfanne erhitzen.",
+            "Eine kleine Menge Teig in die Pfanne geben und bei mittlerer Hitze braten.",
+            "Wenden, sobald sich Bläschen bilden, und die andere Seite goldbraun backen.",
+            "Mit Ahornsirup oder Toppings nach Wahl servieren."
+        ]
     }
 ]

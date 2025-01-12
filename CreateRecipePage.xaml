@@ -11,7 +11,19 @@
         <Editor Placeholder="Füge deine Zutaten hinzu" x:Name="IngredientsEditor" TextColor="Black" BackgroundColor="white"/>
 
         <Label Text="Zubereitung" TextColor="White"/>
-        <Editor Placeholder="Beschreibe die Zubereitung" x:Name="InstructionsEditor" TextColor="White" />
+        <Editor Placeholder="Beschreibe die Zubereitung" x:Name="InstructionsEditor" TextColor="White" BackgroundColor="White"/>
+
+        <!-- Schwierigkeitsgrad -->
+        <Label Text="Schwierigkeitsgrad" TextColor="White" />
+        <Picker x:Name="DifficultyPicker" Title="Wähle den Schwierigkeitsgrad" TextColor="Black" BackgroundColor="White">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Einfach</x:String>
+                    <x:String>Normal</x:String>
+                    <x:String>Schwierig</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
 
         <!-- Bildauswahl -->
         <Label Text="Bild hinzufügen" TextColor="White"/>

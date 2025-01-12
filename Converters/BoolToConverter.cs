@@ -10,7 +10,7 @@ namespace Cooked_App.Converters
         {
             if (value is bool booleanValue)
             {
-                return booleanValue ? Color.FromArgb("#FD5F28") : Color.FromArgb("#E5E5E5");
+                return booleanValue ? Color.FromArgb("#FD9748") : Color.FromArgb("#E5E5E5");
             }
             return Color.FromArgb("#E5E5E5");
         }

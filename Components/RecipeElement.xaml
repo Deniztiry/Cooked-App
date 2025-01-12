@@ -3,15 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cooked_App.Components.RecipeElement">
     <VerticalStackLayout Padding="10" Spacing="10" BackgroundColor="#13181C">
+        <!-- Der gesamte Frame ist klickbar -->
         <Frame CornerRadius="10" HasShadow="False" Padding="0">
-            <Image Source="{Binding ImageUrl}" HeightRequest="170" Aspect="AspectFill" />
+            <Frame.GestureRecognizers>
+                <!-- Wenn das Rezept angetippt wird, führe das NavigateToRecipeDetailCommand aus -->
+                <TapGestureRecognizer Command="{Binding NavigateToRecipeDetailCommand}" />
+            </Frame.GestureRecognizers>
+
+            <Image Source="{Binding ImageUrl}" HeightRequest="200" Aspect="AspectFill" />
         </Frame>
-        <Label Text="{Binding Title}" FontSize="16" TextColor="#FFFFFF" HorizontalOptions="Center">
-            <Label.Triggers>
-                <DataTrigger TargetType="Label" Binding="{Binding Title}" Value="Rezept 7">
-                    <Setter Property="TextColor" Value="Red"/>
-                </DataTrigger>
-            </Label.Triggers>
-        </Label>
+
+        <!-- Titel und Schwierigkeitskreise -->
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="10">
+            <Label Text="{Binding Title}" FontSize="16" TextColor="#FFFFFF" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+            <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[0], Converter={StaticResource BoolToColorConverter}}" />
+            <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[1], Converter={StaticResource BoolToColorConverter}}" />
+            <Frame WidthRequest="20" HeightRequest="20" CornerRadius="10" BackgroundColor="{Binding Difficulty[2], Converter={StaticResource BoolToColorConverter}}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <ImageButton Source="{Binding IsFavorite, Converter={StaticResource BoolToHeartConverter}}" 
+                         WidthRequest="20" 
+                         HeightRequest="20" 
+                         BackgroundColor="red" 
+                         Command="{Binding ToggleFavoriteCommand}" />
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentView>

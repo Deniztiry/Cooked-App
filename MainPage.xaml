@@ -2,32 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Cooked_App"
-             x:Class="Cooked_App.MainPage"
              xmlns:components="clr-namespace:Cooked_App.Components"
+             x:Class="Cooked_App.MainPage"
              BackgroundColor="#13181C">
     <VerticalStackLayout Padding="20">
-        <!-- Suchfeld -->
-        <Border Stroke="#FD5F28" StrokeThickness="2" BackgroundColor="#13181C">
-            <Entry Placeholder="Suche ein Rezept" BackgroundColor="#13181C" TextColor="#FFFFFF" />
-        </Border>
+        <!-- Suchfeld und Button -->
+        <HorizontalStackLayout Spacing="10">
+            <Border Stroke="#FD5F28" StrokeThickness="2" BackgroundColor="#13181C">
+                <Entry x:Name="SearchEntry" 
+                       Placeholder="Suche ein Rezept" 
+                       BackgroundColor="#13181C" 
+                       TextColor="#FFFFFF" 
+                       WidthRequest="280" />
+            </Border>
+            <Button Text="Suchen" BackgroundColor="#FD5F28" TextColor="#FFFFFF" Clicked="OnSearchButtonClicked" />
+        </HorizontalStackLayout>
 
         <!-- Rezepte anzeigen -->
         <CollectionView x:Name="RecipesContainer"
-                ItemsLayout="HorizontalGrid, 2"
-                VerticalScrollBarVisibility="Default"
-                BackgroundColor="#13181C">
+                        ItemsLayout="HorizontalGrid, 2"
+                        VerticalScrollBarVisibility="Default"
+                        BackgroundColor="#13181C">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
-                         Span="2"
-                         HorizontalItemSpacing="10"
-                         VerticalItemSpacing="10" />
+                                 Span="2"
+                                 HorizontalItemSpacing="10"
+                                 VerticalItemSpacing="10" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <components:RecipeElement />
+                    <Grid>
+                        <components:RecipeElement />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRecipeTapped" CommandParameter="{Binding}" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </VerticalStackLayout>
 </ContentPage>

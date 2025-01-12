@@ -1,9 +1,13 @@
-namespace Cooked_App;
+using Microsoft.Maui.Controls;
 
-public partial class Detailpage : ContentPage
+namespace Cooked_App
 {
-	public Detailpage()
-	{
-		
-	}
+    public partial class Detailpage : ContentPage
+    {
+        public Detailpage(Recipe recipe)
+        {
+            InitializeComponent();
+            BindingContext = recipe;  // Rezept als BindingContext setzen
+        }
+    }
 }

@@ -1,20 +1,36 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cooked_App.CreateRecipePage"
              Title="CreateRecipePage"
              BackgroundColor="#13181C">
 
-    <StackLayout Padding="20">
-        <Label Text="Rezeptname" />
-        <Entry Placeholder="Gib den Namen des Rezepts ein" x:Name="RecipeNameEntry" />
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Rezeptname" TextColor="White"/>
+        <Entry Placeholder="Gib den Namen des Rezepts ein" x:Name="RecipeNameEntry" TextColor="White" />
 
-        <Label Text="Zutaten" />
-        <Editor Placeholder="Liste der Zutaten" x:Name="IngredientsEditor" />
+        <Label Text="Zutaten" TextColor="White"/>
+        <Editor Placeholder="Liste der Zutaten" x:Name="IngredientsEditor" TextColor="White" />
 
-        <Label Text="Zubereitung" />
-        <Editor Placeholder="Anleitung zur Zubereitung" x:Name="InstructionsEditor" />
+        <Label Text="Zubereitung" TextColor="White"/>
+        <Editor Placeholder="Anleitung zur Zubereitung" x:Name="InstructionsEditor" TextColor="White" />
 
-        <Button Text="Speichern" Clicked="OnSaveRecipeClicked" />
+        <!-- Bildauswahl -->
+        <Label Text="Bild hinzufügen" TextColor="White"/>
+        <ImageButton Source="image_placeholder.png" 
+                     x:Name="SelectImageButton" 
+                     Clicked="OnSelectImageClicked" 
+                     WidthRequest="150" 
+                     HeightRequest="150" 
+                     Aspect="AspectFill" 
+                     BackgroundColor="#1E1E1E"
+                     BorderColor="#FD5F28"
+                     BorderWidth="2"/>
+        <Image x:Name="RecipeImage" 
+               IsVisible="False" 
+               WidthRequest="200" 
+               HeightRequest="200" 
+               Aspect="AspectFill"/>
+
+        <Button Text="Speichern" Clicked="OnSaveRecipeClicked" BackgroundColor="#FD5F28" TextColor="White" />
     </StackLayout>
 </ContentPage>

@@ -13,7 +13,7 @@
     {
         "Title": "Rezept 4",
         "ImageUrl": "cooked_logo.png",
-        "Difficulty": [ true, false, true ]
+        "Difficulty": [ true, true, true ]
     },
 
     {
@@ -23,6 +23,36 @@
     },
     {
         "Title": "Rezept 7",
+        "ImageUrl": "cooked_logo.png",
+        "Difficulty": [ true, false, false ]
+    },
+    {
+        "Title": "Rezept 333",
+        "ImageUrl": "cooked_logo.png",
+        "Difficulty": [ true, false, false ]
+    },
+    {
+        "Title": "Rezept 456",
+        "ImageUrl": "cooked_logo.png",
+        "Difficulty": [ true, true, false ]
+    },
+    {
+        "Title": "Rezept 61",
+        "ImageUrl": "cooked_logo.png",
+        "Difficulty": [ true, true, true ]
+    },
+    {
+        "Title": "Rezept 7476",
+        "ImageUrl": "cooked_logo.png",
+        "Difficulty": [ true, false, false ]
+    },
+    {
+        "Title": "Rezept 239",
+        "ImageUrl": "cooked_logo.png",
+        "Difficulty": [ true, true, true ]
+    },
+    {
+        "Title": "Rezept 394",
         "ImageUrl": "cooked_logo.png",
         "Difficulty": [ true, true, false ]
     }

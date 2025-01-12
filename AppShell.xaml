@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Shell
     x:Class="Cooked_App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -17,18 +17,18 @@
 
     <TabBar>
         <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Icon="home_icon.png"
-        Route="MainPage" />
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Icon="home_icon.png"
+            Route="MainPage" />
 
         <ShellContent
-        ContentTemplate="{DataTemplate local:CreateRecipePage}"
-        Icon="plus_icon.png"
-        Route="CreateRecipePage" />
+            ContentTemplate="{DataTemplate local:CreateRecipePage}"
+            Icon="plus_icon.png"
+            Route="CreateRecipePage" />
 
         <ShellContent
-        Icon="user_icon.png"
-        ContentTemplate="{DataTemplate local:SettingsPage}"
-        Route="SettingsPage" />
+            Icon="user_icon.png"
+            ContentTemplate="{DataTemplate local:SettingsPage}"
+            Route="SettingsPage" />
     </TabBar>
 </Shell>
